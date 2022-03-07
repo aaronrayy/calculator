@@ -79,10 +79,24 @@ def clear():
 
 #this function calls the function.py file to parse the string and perform correct operation
 def equal():
+    # try:
+    #     s = op.get()
+    #     result = parse(s)
+    #     answer = "" + s + " = " + str(result)
+    #     op.set(answer)
+    # except ValueError as e:
+    #     print("fuck")
+    #     op.set("DNE")
+
     s = op.get()
     result = parse(s)
-    answer = "" + s + " = " + str(result)
-    op.set(answer)
+    if(type(result) != int):
+        clear()
+        op.set("Error: div by 0")
+    else:
+        answer = "" + s + " = " + str(result)
+        op.set(answer)
+
 
 
 

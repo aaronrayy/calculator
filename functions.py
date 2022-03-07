@@ -33,6 +33,7 @@ def compute(operator, a, b):
         case 'x':
             return fmult(a,b)
 
+#basic math operation functions
 def fadd(a, b):
     ret = a + b
     return ret
@@ -46,5 +47,8 @@ def fmult(a, b):
     return ret
 
 def fdiv(a,b):
-    ret = a/b
-    return ret
+    try:
+        ret = a/b
+        return ret
+    except ZeroDivisionError as e:
+        return e
