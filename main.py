@@ -74,8 +74,9 @@ def mult():
     op.set(s)
 def equal():
     s = op.get()
-    s += "="
-    op.set(s)
+    result = parse(s)
+    answer = "" + s + " = " + str(result)
+    op.set(answer)
 def clear():
     s = ""
     op.set(s)

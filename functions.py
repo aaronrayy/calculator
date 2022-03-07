@@ -26,6 +26,10 @@ def compute(operator, a, b):
             return fadd(a,b)
         case '-':
             return fsubtract(a,b)
+        case '/':
+            return fdiv(a,b)
+        case 'x':
+            return fmult(a,b)
 
 def fadd(a, b):
     ret = a + b
