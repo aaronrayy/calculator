@@ -1,21 +1,22 @@
-from operator import eq
-from string import hexdigits
+#importing needed libraries
 from functions import *
 import tkinter as tk
 
+#setting up window
 root = tk.Tk()
-root.geometry("500x700")
+root.geometry("600x600")
 root.config(bg="grey")
 root.resizable(width=False,height=False)
 root.title('calculator')
 
-global op
+#output string representing math expression and answer
 op = tk.StringVar()
 
 #text field for result
-label = tk.Label(root, textvariable=op, width=25, height=5)
+label = tk.Label(root, textvariable=op, width=39, height=5)
 label.place(x=100, y=0)
 
+#functions to set output label depending on which button is pressed
 def zero():
     s = op.get()
     s += "0"
@@ -72,21 +73,23 @@ def mult():
     s = op.get()
     s += "x"
     op.set(s)
+def clear():
+    s = ""
+    op.set(s)
+
+#this function calls the function.py file to parse the string and perform correct operation
 def equal():
     s = op.get()
     result = parse(s)
     answer = "" + s + " = " + str(result)
     op.set(answer)
-def clear():
-    s = ""
-    op.set(s)
 
 
 
-#loop to plave buttons for numbers 1-9
+#loop to place buttons for numbers 1-9
 a = 1
 b = 1
-numarr = [one, two, three, four, five, six, seven, eight, nine]
+numarr = [one, two, three, four, five, six, seven, eight, nine]     #list of function names to set as button commnands
 for i in range(9):
     tk.Button(root, text=(i+1), font=("Arial", 10), command=numarr[i], bg='white', fg='black', activebackground="black", padx=10, pady=10).place(x=(a*100), y=(b*100))
     a += 1

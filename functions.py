@@ -1,26 +1,28 @@
 #math functions for calculator
 
 def parse(s):
-    arg1 = 0
-    arg2 = 0
+    #arg and op strings to represent the numbers in calculation
+    arg1 = ""
+    arg2 = ""
     op = ""
-    flag = 0
+    flag = 0    #flag used to separate arg1 and arg2
     for c in s:
         if flag == 0:
             if c in '1234567890':
                 arg1 += c
             else:
-                op = str(c)
+                op = c
                 flag = 1
-        elif flag != 0:
+        else:
             if c in '1234567890':
                 arg2 += c
     #run correct operation based on 'op' command
-    ret = compute(op, arg1, arg2)
+    ret = compute(op, int(arg1), int(arg2))
     return ret
 
         
 def compute(operator, a, b):
+    #switch statement to determine which operation function to run
     match operator:
         case '+':
             return fadd(a,b)
